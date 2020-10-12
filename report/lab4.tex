@@ -1,0 +1,105 @@
+\documentclass{article}
+
+\begin{document}
+
+\newpage
+\begin{titlepage}
+
+\begin{center}\large{
+    FEDERAL STATE AUTONOMOUS EDUCATIONAL INSTITUTION \\
+    OF HIGHER EDUCATION \\*
+    ITMO UNIVERSITY \\*
+}\end{center}
+
+\vspace{12em}
+
+\begin{center}\large{
+    Report \\
+    on the practical task No. 4 \\
+    <<Algorithms for unconstrained nonlinear optimization. Stochastic and
+metaheuristic algorithms.>>
+}\end{center}
+
+\vspace{8.5em}
+
+\flushright{Performed by}
+\flushright{Anastasiia Pokasova}
+\flushright{J4133c+}
+\vspace{1.5em}
+\flushright{Accepted by}
+\flushright{Dr Petr Chunaev}
+
+\vspace{\fill}
+
+\begin{center}
+    St. Petersburg \\
+    2020
+\end{center}
+
+\end{titlepage}
+
+\newpage
+\subsection*{Goal}
+
+The use of stochastic and metaheuristic algorithms (Simulated Annealing,
+Differential Evolution, Particle Swarm Optimization) in the tasks of unconstrained
+nonlinear optimization and the experimental comparison of them with Nelder-Mead
+and Levenberg-Marquardt algorithms
+
+\subsection*{Problems and methods}
+
+Generate the noisy data $\{x_k, y_k\}$, where $k = 0, ..., 100$, according to the following rule:
+
+\begin{equation}
+    y_k = \alpha x_k + \beta + \delta_k, x_k = \frac{k}{100},
+\end{equation}
+
+where $\delta_k \sim N(0, 1)$ are values of a random variable with standard normal distribution.
+Approximate the data by the rational function:
+
+\begin{center}
+    \item $F(x, a, b, c, d) = \frac{ax + b}{x^2 + cx + d}$
+\end{center}
+
+by means of least squares through the numerical minimization (with precision $\varepsilon = 0.001$ of the following function:
+
+\begin{equation}
+    D(a, b) = \sum^{1000}_{k=0}(F(x_k, a, b, c, d) - y_k)^2.
+\end{equation}
+
+To solve the minimization problem, use Nelder-Mead algorithm, LevenbergMarquardt algorithm and at least two of the methods among Simulated Annealing,
+Differential Evolution and Particle Swarm Optimization. If necessary, set the initial
+approximations and other parameters of the methods. Use $\epsilon$ = 0.001 as the
+precision; at most 1000 iterations are allowed. Visualize the data and the
+approximants obtained in a single plot. Analyze and compare the results obtained
+(in terms of number of iterations, precision, number of function evaluations, etc.)
+\subsection*{Brief theoretical part}
+
+\paragraph{Partical Swarm Optimization}
+
+Particle swarm optimization (PSO) is a computational method that optimizes a problem by iteratively trying to improve a candidate solution with regard to a given measure of quality. It solves a problem by having a population of candidate solutions, here dubbed particles, and moving these particles around in the search-space according to simple mathematical formulae over the particle's position and velocity. In PSO, the new location of each particle is determined by a velocity term, which reflects the attraction of global best ($g_b$) and its own best ($o_b$) during the history of the particle and random coefficients.
+
+\paragraph{Differential Evolution}
+
+A basic variant of the Differential Evolution  algorithm works by having a population of candidate solutions (called agents). These agents are moved around in the search-space by using simple mathematical formulae to combine the positions of existing agents from the population. If the new position of an agent is an improvement then it is accepted and forms part of the population, otherwise the new position is simply discarded. The process is repeated and by doing so it is hoped, but not guaranteed, that a satisfactory solution will eventually be discovered.
+
+\paragraph{Simulated Annealing}
+
+The simulated annealing algorithm is an optimization method which mimics the slow cooling of metals, which is characterized by a progressive reduction in the atomic movements that reduce the density of lattice defects until a lowest-energy state is reached. In a similar way, at each virtual annealing temperature, the simulated annealing algorithm generates a new potential solution (or neighbour of the current state) to the problem considered by altering the current state, according to a predefined criterion. The acceptance of the new state is then based on the satisfaction of the Metropolis criterion, and this procedure is iterated until convergence.
+
+\paragraph{Nelder-Mead}
+
+The method uses the concept of a simplex, which is a special polytope of n + 1 vertices in n dimensions. Examples of simplices include a line segment on a line, a triangle on a plane, a tetrahedron in three-dimensional space and so forth.
+
+Nelder–Mead in n dimensions maintains a set of n + 1 test points arranged as a simplex. It then extrapolates the behavior of the objective function measured at each test point in order to find a new test point and to replace one of the old test points with the new one, and so the technique progresses. The simplest approach is to replace the worst point with a point reflected through the centroid of the remaining n points. If this point is better than the best current point, then we can try stretching exponentially out along this line. On the other hand, if this new point isn't much better than the previous value, then we are stepping across a valley, so we shrink the simplex towards a better point.
+
+\paragraph{Levenberg-Marquardt}
+
+
+\subsection*{Results}
+
+Graph and analyze
+
+
+\end{document}
+
